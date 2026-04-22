@@ -41,7 +41,7 @@
             z-index: 999; 
         }
         .navbar-brand1 img { height: 50px; width: auto; }
-        .nav-link { color: #fff !important; font-weight: 600; font-size: 14px; padding: 0.5rem 1rem !important; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; }
+        .nav-link { color: #fff !important; font-weight: 600; font-size: 14px; padding: 0.5rem 1rem !important; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; white-space: nowrap; }
         .nav-link:hover, .nav-link.active { color: var(--yellow) !important; }
         .navbar-toggler { border: none; font-size: 1.5rem; color: #fff; }
         
@@ -210,7 +210,7 @@
         .floor-img { border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; width: 100%; display: block; }
         .floor-img:hover { transform: scale(1.02); box-shadow: 0 6px 20px rgba(233,30,99,0.2); }
 
-        /* ===== BLUR SYSTEM ===== */
+        /* ===== BLUR SYSTEM - TEMPTING ===== */
         .blur-container {
             position: relative;
             overflow: hidden;
@@ -229,8 +229,7 @@
         .blur-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.45);
-            backdrop-filter: blur(2px);
+            background: linear-gradient(135deg, rgba(136,14,79,0.9), rgba(233,30,99,0.8));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -244,18 +243,38 @@
             padding: 20px;
         }
         .blur-overlay:hover {
-            background: rgba(233,30,99,0.35);
+            background: linear-gradient(135deg, rgba(136,14,79,0.95), rgba(233,30,99,0.9));
         }
-        .blur-overlay i { color: var(--yellow); margin-bottom: 12px; }
-        .blur-overlay h5 { margin: 0 0 6px; font-weight: 700; font-size: 18px; }
-        .blur-overlay p { font-size: 13px; opacity: 0.95; margin: 0; }
-        .blur-overlay .unlock-hint {
-            background: rgba(255,255,255,0.15);
-            padding: 6px 14px;
+        .blur-overlay .premium-badge {
+            background: var(--yellow);
+            color: var(--dark);
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 12px;
-            margin-top: 12px;
-            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .blur-overlay i { color: var(--yellow); margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+        .blur-overlay h5 { margin: 0 0 6px; font-weight: 700; font-size: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .blur-overlay p { font-size: 14px; opacity: 0.95; margin: 0; max-width: 260px; line-height: 1.4; }
+        .blur-overlay .unlock-hint {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-top: 14px;
+            border: 1px solid rgba(255,255,255,0.4);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulseHint 2s infinite;
+        }
+        @keyframes pulseHint {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); }
+            50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(255,255,255,0.3); }
         }
 
         /* Seal of Trust */
@@ -307,7 +326,7 @@
         .mobile-bottom-bar .m-btn:last-child { border-right: none; }
         .mobile-bottom-bar .m-btn i { margin-right: 6px; }
 
-        /* ===== WALL STICKER SIDE BUTTONS - REDESIGNED BOTTOM-TO-TOP ===== */
+        /* ===== WALL STICKER SIDE BUTTONS ===== */
         .wall-sticker {
             position: fixed;
             top: 50%;
@@ -339,7 +358,6 @@
             border: 2px solid;
             min-height: 240px;
         }
-        /* Glossy shine overlay */
         .sticker-box::before {
             content: '';
             position: absolute;
@@ -363,12 +381,10 @@
             margin-top: 10px;
             position: relative;
             z-index: 2;
-            /* Bottom-to-top text effect */
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             text-orientation: mixed;
         }
-        /* Left - Brochure */
         .wall-sticker-left {
             left: 0;
             transform: translateY(-50%);
@@ -382,7 +398,6 @@
             box-shadow: inset -3px 0 6px rgba(255,255,255,0.4), 4px 4px 20px rgba(0,0,0,0.25);
             text-shadow: 0 1px 0 rgba(255,255,255,0.4);
         }
-        /* Right - Schedule */
         .wall-sticker-right {
             right: 0;
             transform: translateY(-50%);
@@ -396,7 +411,6 @@
             box-shadow: inset 3px 0 6px rgba(255,255,255,0.25), -4px 4px 20px rgba(0,0,0,0.25);
             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
-        /* Gold blink animation */
         @keyframes goldGlow {
             0%, 100% { filter: drop-shadow(0 0 10px rgba(255,215,0,0.6)) brightness(1); }
             50% { filter: drop-shadow(0 0 25px rgba(255,215,0,1)) brightness(1.15); }
@@ -404,7 +418,6 @@
         .btn-blink {
             animation: goldGlow 2.5s infinite;
         }
-        /* Hover effects */
         .wall-sticker-left:hover .sticker-box {
             background: linear-gradient(180deg, #FFF59D 0%, #FFECB3 20%, #FFD700 50%, #FF6F00 100%);
             padding: 36px 20px;
@@ -414,32 +427,71 @@
             padding: 36px 20px;
         }
 
-        /* ===== WHATSAPP FLOAT ===== */
-        .whatsapp-float {
+        /* ===== FLOATING ACTION BUTTONS ===== */
+        .fab {
             position: fixed;
-            bottom: 140px;
             right: 20px;
             z-index: 996;
-            background: #25D366;
-            color: white;
             width: 56px;
             height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+            font-size: 26px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
             transition: all 0.3s ease;
             text-decoration: none;
             border: 3px solid rgba(255,255,255,0.3);
         }
-        .whatsapp-float:hover {
-            transform: scale(1.15) rotate(-5deg);
-            background: #128C7E;
+        .fab:hover {
+            transform: scale(1.15);
             color: white;
+        }
+        /* WhatsApp - topmost */
+        .whatsapp-float {
+            bottom: 150px;
+            background: #25D366;
+            color: white;
+            font-size: 30px;
+        }
+        .whatsapp-float:hover {
+            background: #128C7E;
             box-shadow: 0 6px 25px rgba(37,211,102,0.7);
         }
+        /* Phone - middle */
+        .phone-float {
+            bottom: 222px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            color: white;
+            font-size: 24px;
+        }
+        .phone-float:hover {
+            background: linear-gradient(135deg, var(--secondary-pink), var(--dark-pink));
+            box-shadow: 0 6px 25px rgba(233,30,99,0.6);
+        }
+        /* Scroll top - bottom */
+        .scrollup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%);
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 996;
+            box-shadow: 0 2px 10px rgba(233,30,99,0.3);
+            border: none;
+        }
+        .scrollup.visible { opacity: 1; }
+        .scrollup:hover { background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%); color: var(--dark); }
 
         /* Popup Modal */
         .modal-content { border-radius: 12px; border: none; overflow: hidden; }
@@ -454,33 +506,36 @@
         .modal-checkbox a { color: var(--primary-pink); cursor: pointer; text-decoration: underline; font-weight: 600; }
         .form-message { min-height: 22px; font-size: 14px; font-weight: 700; text-align: center; margin-top: 8px; }
 
+        /* Welcome Modal Header */
+        .welcome-modal-header {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--dark-pink) 100%);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: none;
+        }
+        .welcome-modal-header h5 { font-weight: 700; margin: 0; font-size: 20px; }
+        .welcome-modal-header p { margin: 6px 0 0; opacity: 0.9; font-size: 14px; }
+
+        /* RERA Section */
+        #ReraInfo { background: #fff; border-top: 3px solid var(--yellow); }
+        #ReraInfo p { font-size: 13px; line-height: 1.6; }
+        #ReraInfo a { color: var(--secondary-pink); font-weight: 600; text-decoration: none; }
+        #ReraInfo .rera-box {
+            background: #fff8e1;
+            border: 1px solid var(--yellow);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
         /* Disclaimer */
         #Disclaimer { background: #fff0f3; padding: 2rem 0; font-size: 12px; color: #666; }
         #Disclaimer a { color: var(--secondary-pink); text-decoration: none; cursor: pointer; font-weight: 600; }
 
-        /* Scroll Top */
-        .scrollup { position: fixed; bottom: 80px; right: 20px; background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: 0.3s; z-index: 996; box-shadow: 0 2px 10px rgba(233,30,99,0.3); }
-        .scrollup.visible { opacity: 1; }
-        .scrollup:hover { background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%); color: var(--dark); }
-
         /* Alerts */
         .form-alert { position: fixed; top: 80px; right: 20px; z-index: 9999; min-width: 300px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); animation: slideIn 0.4s ease; }
         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-
-        /* Welcome Auto-Popup */
-        .welcome-popup .modal-dialog { max-width: 500px; }
-        .welcome-popup .modal-content { border-radius: 16px; overflow: hidden; border: none; }
-        .welcome-header { background: linear-gradient(135deg, var(--primary-pink) 0%, var(--dark-pink) 100%); color: #fff; padding: 30px 20px; text-align: center; position: relative; }
-        .welcome-header h4 { font-weight: 700; margin: 0; font-size: 22px; }
-        .welcome-header p { margin: 8px 0 0; opacity: 0.9; font-size: 14px; }
-        .welcome-body { padding: 25px; }
-        .welcome-body .form-control { margin-bottom: 12px; }
-        .welcome-body .btn-enquire { background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%); color: var(--dark); border: none; padding: 12px; font-weight: 700; width: 100%; border-radius: 8px; font-size: 15px; }
-        .welcome-body .btn-enquire:hover { background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%); color: #fff; }
-        .welcome-body .btn-close-text { color: #888; font-size: 13px; text-align: center; display: block; margin-top: 12px; cursor: pointer; }
-        .welcome-body .btn-close-text:hover { color: var(--primary-pink); }
-        .welcome-close { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.2); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .welcome-close:hover { background: rgba(255,255,255,0.4); }
 
         /* Policy Modal Content */
         .policy-modal .modal-dialog { max-width: 800px; }
@@ -504,7 +559,6 @@
             .overview-img { margin-bottom: 1.5rem; }
             .locdetails { margin-bottom: 1rem; }
             .popup-img { display: none; }
-            .welcome-popup .modal-dialog { margin: 15px; }
             .wall-sticker {
                 top: 50%;
                 transform: translateY(-50%);
@@ -519,8 +573,10 @@
                 min-height: 190px;
             }
             .sticker-box i { font-size: 18px; }
-            .whatsapp-float { bottom: 140px; right: 15px; width: 50px; height: 50px; font-size: 24px; }
-            .scrollup { bottom: 80px; right: 15px; }
+            /* Mobile FAB positions - above 56px bottom bar */
+            .whatsapp-float { bottom: 195px; right: 15px; width: 50px; height: 50px; font-size: 24px; }
+            .phone-float { bottom: 135px; right: 15px; width: 50px; height: 50px; font-size: 22px; }
+            .scrollup { bottom: 75px; right: 15px; width: 42px; height: 42px; }
             .map-container iframe, .map-container .map-placeholder { height: 350px; }
         }
         @media (min-width: 992px) {
@@ -582,10 +638,13 @@
         </span>
     </button>
 
-    <!-- ===== WHATSAPP FLOAT ===== -->
-    <a href="https://wa.me/917996000436?text=Hi%2C%20I%20am%20interested%20in%20Shriram%20122%20West.%20Please%20share%20more%20details." 
-       class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <!-- ===== FLOATING ACTION BUTTONS ===== -->
+    <a href="https://wa.me/919790133427?text=Hi%2C%20I%20am%20interested%20in%20Shriram%20122%20West.%20Please%20share%20more%20details." 
+       class="fab whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+919790133427" class="fab phone-float" aria-label="Call Now">
+        <i class="fa-solid fa-phone"></i>
     </a>
 
     <!-- ===== PINK NAVBAR WITH PHONE ===== -->
@@ -597,9 +656,9 @@
                 </a>
                 
                 <!-- Mobile Call Button -->
-                <a href="tel:+917996000436" class="nav-phone d-lg-none me-2">
+                <a href="tel:+919790133427" class="nav-phone d-lg-none me-2">
                     <i class="fa-solid fa-phone"></i>
-                    <span>+91 79960 00436</span>
+                    <span>+91 97901 33427</span>
                 </a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -617,6 +676,11 @@
                         <li class="nav-item"><a class="nav-link scroll-top" href="#gallery">Plans</a></li>
                         <li class="nav-item"><a class="nav-link scroll-top" href="#MapView">Map</a></li>
                         <li class="nav-item"><a class="nav-link scroll-top" href="#AboutUs">About Us</a></li>
+                        <li class="nav-item d-none d-lg-block ms-lg-3">
+                            <a href="tel:+919790133427" class="nav-phone">
+                                <i class="fa-solid fa-phone"></i> +91 97901 33427
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <a class="navbar-brand1 d-none d-lg-block navbar-logo" href="#">
@@ -679,7 +743,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
                             <div class="hi-icon"><img src="https://shriram122west.com/img/05.png" alt="" onerror="this.style.display='none'"></div>
-                            <p>Spacious 2 & 3 BHK homes: 785 - 1296 sq.ft</p>
+                            <p>Spacious 2 & 3 BHK homes: 818 - 1296 sq.ft</p>
                         </div>
                         <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
                             <div class="hi-icon"><img src="https://shriram122west.com/img/06.png" alt="" onerror="this.style.display='none'"></div>
@@ -773,7 +837,7 @@
                 <div class="pricing-card">
                     <div class="pricing-header">3 BHK <small style="font-size:14px;opacity:0.9;">+ 3T</small></div>
                     <div class="pricing-body">
-                        <div class="sqft"><i class="fa-solid fa-ruler-combined me-2" style="color: var(--primary-pink);"></i>1285 Sq.ft</div>
+                        <div class="sqft"><i class="fa-solid fa-ruler-combined me-2" style="color: var(--primary-pink);"></i>1296 Sq.ft</div>
                         <div class="price">₹ 93.32 Lacs<span>+ Registration Charges</span></div>
                         <div class="possession">
                             <i class="fa-regular fa-calendar-check"></i> Possession: Oct 2027
@@ -958,9 +1022,10 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/01.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" alt="Master Plan" onerror="this.src='https://placehold.co/600x400/333/FFF?text=Master+Plan'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium Content</span>
                                 <i class="fa-solid fa-lock fa-2x"></i>
                                 <h5>View Master Plan</h5>
-                                <p>Submit enquiry to unlock all floor plans</p>
+                                <p>Submit enquiry to unlock exclusive floor plans & pricing</p>
                                 <span class="unlock-hint"><i class="fa-solid fa-unlock me-1"></i> Click to Enquire</span>
                             </div>
                         </div>
@@ -977,6 +1042,7 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/02.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" onerror="this.src='https://placehold.co/400x300/333/FFF?text=2BHK+Type+A'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium</span>
                                 <i class="fa-solid fa-lock fa-lg"></i>
                                 <h6 class="mt-2 mb-1">2 BHK Type A</h6>
                                 <small>Click to unlock</small>
@@ -989,6 +1055,7 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/03.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" onerror="this.src='https://placehold.co/400x300/333/FFF?text=2BHK+Type+B'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium</span>
                                 <i class="fa-solid fa-lock fa-lg"></i>
                                 <h6 class="mt-2 mb-1">2 BHK Type B</h6>
                                 <small>Click to unlock</small>
@@ -1001,6 +1068,7 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/04.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" onerror="this.src='https://placehold.co/400x300/333/FFF?text=2BHK+Type+C'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium</span>
                                 <i class="fa-solid fa-lock fa-lg"></i>
                                 <h6 class="mt-2 mb-1">2 BHK Type C</h6>
                                 <small>Click to unlock</small>
@@ -1019,6 +1087,7 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/05.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+A'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium</span>
                                 <i class="fa-solid fa-lock fa-lg"></i>
                                 <h6 class="mt-2 mb-1">3 BHK Type A</h6>
                                 <small>Click to unlock</small>
@@ -1031,6 +1100,7 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/06.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+B'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium</span>
                                 <i class="fa-solid fa-lock fa-lg"></i>
                                 <h6 class="mt-2 mb-1">3 BHK Type B</h6>
                                 <small>Click to unlock</small>
@@ -1043,6 +1113,7 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/07.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+C'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium</span>
                                 <i class="fa-solid fa-lock fa-lg"></i>
                                 <h6 class="mt-2 mb-1">3 BHK Type C</h6>
                                 <small>Click to unlock</small>
@@ -1055,6 +1126,7 @@
                                 <img src="https://shriram122west.com/img/floorplan/small/08.jpg" class="img-fluid floor-img blur-view" data-blur="floorplan" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+D'">
                             </a>
                             <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                                <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Premium</span>
                                 <i class="fa-solid fa-lock fa-lg"></i>
                                 <h6 class="mt-2 mb-1">3 BHK Type D</h6>
                                 <small>Click to unlock</small>
@@ -1084,6 +1156,7 @@
                             loading="lazy">
                         </iframe>
                         <div class="blur-overlay" onclick="handleBlurClick(event, this)">
+                            <span class="premium-badge"><i class="fa-solid fa-crown me-1"></i> Exclusive</span>
                             <i class="fa-solid fa-map-location-dot fa-3x mb-3"></i>
                             <h5>View Location on Google Maps</h5>
                             <p>Shriram 122 West, Mangadu, Chennai</p>
@@ -1174,6 +1247,37 @@
         </div>
     </section>
 
+    <!-- ===== RERA & CHANNEL PARTNER INFO ===== -->
+    <section id="ReraInfo" class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="rera-box text-center" data-aos="fade-up">
+                        <p class="mb-2 fw-bold text-dark">
+                            Project Registered under Government of India RERA Act 2016 | 
+                            <a href="https://rera.tn.gov.in" target="_blank">rera.tn.gov.in</a>
+                        </p>
+                        <p class="mb-2 text-muted">
+                            <i class="fa-solid fa-location-dot me-1" style="color: var(--primary-pink);"></i>
+                            Site Address: Near Porur Mangadu, Chennai
+                        </p>
+                        <p class="mb-0 text-muted fw-bold" style="font-size: 12px;">
+                            Government RERA & Shriram Properties Ltd Authorised Agent: Instaprop Realty India, 
+                            Registration No: TN/29/Agent/0079/2017
+                        </p>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p class="small text-muted" style="font-size: 11px; line-height: 1.6;">
+                            <strong>Disclaimer:</strong> This website is only meant for informational purpose(s) only. 
+                            It should not be otherwise considered/ claimed as an official builder/project site. 
+                            This website solely belongs to an authorised channel Partner.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Disclaimer -->
     <section id="Disclaimer">
         <div class="container py-4">
@@ -1201,7 +1305,7 @@
         <div class="container-fluid">
             <div class="row align-items-center justify-content-center g-2">
                 <div class="col-auto">
-                    <a href="tel:+917996000436" class="text-white text-decoration-none fw-bold"><i class="fa-solid fa-phone"></i> +91 79960 00436</a>
+                    <a href="tel:+919790133427" class="text-white text-decoration-none fw-bold"><i class="fa-solid fa-phone"></i> +91 97901 33427</a>
                 </div>
                 <div class="col-md-2 col-lg-2">
                     <input type="text" name="name" class="form-control" placeholder="Name *" required>
@@ -1217,7 +1321,7 @@
                 </div>
             </div>
             <div class="text-center mt-1">
-                <label class="form-check-label">
+                <label class="form-check-label" style="color: white;" >
                     <input class="form-check-input" type="checkbox" checked required> I wish to receive updates and offers from Shriram Properties via Whatsapp / Email / SMS / Call
                 </label>
             </div>
@@ -1226,7 +1330,7 @@
 
     <!-- Mobile Bottom Bar -->
     <div class="mobile-bottom-bar d-lg-none">
-        <a href="tel:+917996000436" class="m-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
+        <a href="tel:+919790133427" class="m-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
         <a href="javascript:void(0)" class="m-btn pricepop"><i class="fa-solid fa-envelope"></i> Enquire Now</a>
     </div>
 
@@ -1280,7 +1384,7 @@
         </div>
     </div>
 
-    <!-- ===== BROCHURE MODAL - NEW ===== -->
+    <!-- ===== BROCHURE MODAL ===== -->
     <div class="modal fade" id="brochureModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -1331,7 +1435,7 @@
         </div>
     </div>
 
-    <!-- ===== SCHEDULE VISIT MODAL - NEW ===== -->
+    <!-- ===== SCHEDULE VISIT MODAL ===== -->
     <div class="modal fade" id="scheduleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -1382,27 +1486,56 @@
         </div>
     </div>
 
-    <!-- Welcome Auto-Popup -->
-    <div class="modal fade welcome-popup" id="welcomeModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
+    <!-- ===== WELCOME MODAL - IMAGE + FORM LAYOUT ===== -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="welcome-header">
+                <div class="welcome-modal-header position-relative">
                     <button type="button" class="welcome-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-                    <h4><i class="fa-solid fa-gift me-2"></i>Exclusive Launch Offer</h4>
+                    <h5><i class="fa-solid fa-gift me-2"></i>Exclusive Launch Offer</h5>
                     <p>Register your interest for Shriram 122 West today!</p>
                 </div>
-                <div class="welcome-body">
-                    <form id="welcomeForm" onsubmit="return handleFormSubmit(event, 'welcomeForm')">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name *" required>
-                        <input type="email" name="email" class="form-control" placeholder="Email Address">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-light fw-bold" style="color: var(--secondary-pink);">+91</span>
-                            <input type="tel" name="mobile" class="form-control" placeholder="Mobile Number *" required maxlength="10" pattern="[6-9]{1}[0-9]{9}" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <img src="https://shriram122west.com/img/122-west-new.webp" class="popup-img" alt="Shriram 122 West" onerror="this.src='https://placehold.co/400x500/e91e63/FFF?text=Shriram+122+West'">
                         </div>
-                        <button type="submit" class="btn-enquire">GET INSTANT CALLBACK</button>
-                        <div class="form-message"></div>
-                    </form>
-                    <span class="btn-close-text" data-bs-dismiss="modal">No thanks, I'll browse first</span>
+                        <div class="col-lg-6 col-12">
+                            <div class="text-center mb-3">
+                                <img src="https://shriram122west.com/img/logo-big-new-white.png" alt="Shriram" style="width: 40%;" onerror="this.src='https://placehold.co/150x50/e91e63/FFF?text=SHRIRAM'">
+                            </div>
+                            <form id="welcomeForm" onsubmit="return handleFormSubmit(event, 'welcomeForm')">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">NAME *</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name *" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">EMAIL</label>
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">CONTACT NO *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light fw-bold" style="color: var(--secondary-pink);">+91</span>
+                                        <input type="tel" name="mobile" class="form-control" placeholder="Mobile Number *" required maxlength="10" pattern="[6-9]{1}[0-9]{9}" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                                    </div>
+                                </div>
+                                <div class="modal-checkbox">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" checked required>
+                                        <label class="form-check-label">I agree and authorize team to contact me. This will override the registry with DNC / NDNC</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" checked required>
+                                        <label class="form-check-label">I consent to the processing of my personal data according to <a onclick="openPrivacyPolicy()">Privacy Policy</a> & <a onclick="openTermsConditions()">T&C</a></label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="submit-btn mt-3">GET INSTANT CALLBACK</button>
+                                <div class="form-message"></div>
+                            </form>
+                            <span class="btn-close-text d-block text-center mt-3" data-bs-dismiss="modal" style="color: #888; font-size: 13px; cursor: pointer;">No thanks, I'll browse first</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
