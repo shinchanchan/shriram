@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Shriram 122 West | Premium Residences in Chennai</title>
+    <meta name="description" content="Shriram 122 West - Premium 2 & 3 BHK residences at Mangadu, Chennai. 4.98 acres with 30+ world-class amenities.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- LightGallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #2a4191;
+            --gold: #c5a059;
+            --dark: #1a1a1a;
+            --light-grey: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden; color: #333; }
+
+        /* ===== PRELOADER ===== */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, #0f1a3d 100%);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .preloader-content {
+            text-align: center;
+            padding: 20px;
+        }
+        .preloader-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: brightness(0) invert(1);
+            animation: pulseLogo 2s infinite ease-in-out;
+        }
+        @keyframes pulseLogo {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        .spinner-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+        }
+        .spinner-ring {
+            position: absolute;
+            width: 100%; height: 100%;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top: 4px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .spinner-ring:nth-child(2) {
+            width: 60%; height: 60%;
+            top: 20%; left: 20%;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-bottom: 4px solid #fff;
+            animation: spinReverse 1.2s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spinReverse { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+        .preloader-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .preloader-subtext {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            font-weight: 400;
+        }
+        .loading-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            margin: 20px auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: var(--gold);
+            border-radius: 3px;
+            animation: loadProgress 2s ease-in-out infinite;
+        }
+        @keyframes loadProgress {
+            0% { width: 0%; left: 0; }
+            50% { width: 100%; left: 0; }
+            100% { width: 0%; left: 100%; }
+        }
+
+        /* Header & Nav */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 999; }
+        .navbar-brand1 img { height: 50px; width: auto; }
+        .nav-link { color: var(--dark) !important; font-weight: 600; font-size: 14px; padding: 0.5rem 1rem !important; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--secondary-blue) !important; }
+        .navbar-toggler { border: none; font-size: 1.5rem; color: var(--secondary-blue); }
+        .navbar-logo { margin-left: auto; }
+
+        /* Section Headers */
+        .section-head { color: var(--secondary-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .section-divider { width: 120px; height: 3px; background: var(--gold); margin: 0 auto 2rem; border-radius: 2px; }
+
+        /* Hero */
+        .hero-banner { position: relative; width: 100%; overflow: hidden; }
+        .hero-banner img { width: 100%; height: auto; display: block; }
+        .carousel-indicators button { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(255,255,255,0.6); border: 2px solid #fff; margin: 0 6px; }
+        .carousel-indicators button.active { background-color: var(--gold); }
+
+        /* Overview */
+        .overview-img { border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); width: 100%; }
+        .hi-icon img { height: 60px; width: auto; margin-bottom: 10px; }
+        .amenitiesicon { text-align: center; padding: 1.5rem 1rem; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .amenitiesicon:nth-child(3n) { border-right: none; }
+        .amenitiesicon:nth-last-child(-n+3) { border-bottom: none; }
+        .amenitiesicon p { font-size: 14px; color: #555; margin: 0; font-weight: 500; }
+        .locdetails { padding: 1rem 0.5rem; text-align: center; }
+        .locdetails img { height: 50px; width: auto; margin-bottom: 8px; }
+        .locdetails h6 { font-size: 13px; color: #444; line-height: 1.4; }
+
+        /* Configuration */
+        .Configurationbox { background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 2rem; text-align: center; transition: transform 0.3s; border-top: 4px solid var(--secondary-blue); }
+        .Configurationbox:hover { transform: translateY(-5px); }
+        .configUnit { color: var(--gold); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .largeh5 { color: var(--secondary-blue); font-weight: 700; font-size: 22px; margin: 10px 0 20px; }
+        .hoverBtn { background: var(--secondary-blue); color: #fff; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: 0.3s; cursor: pointer; }
+        .hoverBtn:hover { background: var(--gold); color: #fff; }
+        .hoverBtn a { color: #fff; text-decoration: none; display: block; }
+
+        /* Amenities Slider */
+        .swiperbox { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
+        .swiperbox img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s; }
+        .swiperbox:hover img { transform: scale(1.1); }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+        .swiperbox:hover .overlay { opacity: 1; }
+        .overlay img { width: 40px; height: 40px; }
+        .amenities-wrapper { padding-bottom: 40px; }
+        .swiper-pagination-bullet-active { background: var(--secondary-blue) !important; }
+        .swiper-button-next, .swiper-button-prev { color: var(--secondary-blue); background: rgba(255,255,255,0.9); width: 40px; height: 40px; border-radius: 50%; }
+        .swiper-button-next:after, .swiper-button-prev:after { font-size: 18px; font-weight: bold; }
+
+        /* Videos & Floor Plans Tabs */
+        .gallerynavtabs { list-style: none; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #eee; }
+        .gallerynavtabs li { display: inline-block; margin: 0 5px; }
+        .ametab { display: block; padding: 12px 24px; color: #666; font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; transition: 0.3s; font-size: 15px; }
+        .ametab.active, .ametab:hover { color: var(--secondary-blue); border-bottom-color: var(--secondary-blue); }
+        .gelbox { display: none; animation: fadeIn 0.5s; }
+        .gelbox.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
+        /* Video Caption */
+        .video-caption {
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, #1a1a2e 100%);
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 8px 8px 0 0;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: -4px;
+            position: relative;
+            z-index: 2;
+        }
+        .video-caption i { color: var(--gold); }
+        .video-caption + .video-wrapper { border-radius: 0 0 8px 8px; }
+        .video-card { margin-bottom: 24px; }
+        .video-card:last-child { margin-bottom: 0; }
+
+        .floor-img { border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; }
+        .floor-img:hover { transform: scale(1.02); }
+
+        /* Seal of Trust */
+        #seal_of_trust { background: linear-gradient(135deg, var(--secondary-blue) 0%, #1a1a2e 100%); color: #fff; padding: 4rem 0; }
+        .Highlight-box { text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2); }
+        .count_data { font-size: 36px; font-weight: 700; color: var(--gold); display: block; margin-bottom: 5px; }
+        .Highlight-box p { font-size: 14px; margin: 0; color: rgba(255,255,255,0.9); }
+
+        /* About */
+        .clientlogo { max-height: 80px; width: auto; margin: 0 auto 1.5rem; display: block; }
+        .rera { color: var(--secondary-blue); font-weight: 600; margin-top: 1rem; }
+        .app_qr_code img { max-height: 120px; margin: 1rem auto; display: block; }
+
+        /* Forms */
+        .footer-form { background: var(--secondary-blue); padding: 1rem 0; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 998; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); }
+        .footer-form input { border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.95); padding: 8px 12px; font-size: 14px; }
+        .footer-form .btn-submit { background: var(--gold); color: #fff; border: none; padding: 8px 24px; font-weight: 600; border-radius: 4px; width: 100%; }
+        .footer-form .btn-submit:hover { background: #b08d4b; }
+        .form-check-label { font-size: 11px; color: rgba(255,255,255,0.9); }
+        .form-check-input { margin-top: 0.2em; }
+
+        /* Mobile Bottom Bar */
+        .mobile-bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 997; background: var(--secondary-blue); display: flex; }
+        .mobile-bottom-bar .m-btn { flex: 1; text-align: center; padding: 14px; color: #fff; font-weight: 600; text-decoration: none; font-size: 14px; border-right: 1px solid rgba(255,255,255,0.2); }
+        .mobile-bottom-bar .m-btn:last-child { border-right: none; }
+        .mobile-bottom-bar .m-btn i { margin-right: 6px; }
+
+        /* Popup Modal */
+        .modal-content { border-radius: 12px; border: none; overflow: hidden; }
+        .modal-header { border-bottom: none; padding: 1rem 1rem 0; }
+        .modal-body { padding: 1.5rem; }
+        .popup-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; min-height: 300px; }
+        .form-control { padding: 10px 12px; font-size: 14px; }
+        .form-control:focus { border-color: var(--secondary-blue); box-shadow: 0 0 0 0.2rem rgba(42,65,145,0.25); }
+        .submit-btn { background: var(--secondary-blue); color: #fff; border: none; padding: 12px; font-weight: 600; text-transform: uppercase; width: 100%; border-radius: 6px; transition: 0.3s; }
+        .submit-btn:hover { background: var(--gold); }
+        .modal-checkbox { font-size: 11px; color: #666; margin: 10px 0; }
+        .modal-checkbox a { color: var(--secondary-blue); }
+
+        /* Disclaimer */
+        #Disclaimer { background: #f1f1f1; padding: 2rem 0; font-size: 12px; color: #666; }
+        #Disclaimer a { color: var(--secondary-blue); text-decoration: none; }
+
+        /* Scroll Top */
+        .scrollup { position: fixed; bottom: 80px; right: 20px; background: var(--secondary-blue); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: 0.3s; z-index: 996; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .scrollup.visible { opacity: 1; }
+        .scrollup:hover { background: var(--gold); }
+
+        /* Alerts */
+        .form-alert { position: fixed; top: 80px; right: 20px; z-index: 9999; min-width: 300px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); animation: slideIn 0.4s ease; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* Responsive Fixes */
+        @media (max-width: 991px) {
+            .navbar-brand1 img { height: 40px; }
+            .amenitiesicon { border-right: none; }
+            .amenitiesicon:nth-last-child(-n+3) { border-bottom: 1px solid #eee; }
+            .amenitiesicon:last-child { border-bottom: none; }
+            .section-head { font-size: 1.5rem; }
+            .footer-form { display: none !important; }
+            body { padding-bottom: 60px; }
+            .overview-img { margin-bottom: 1.5rem; }
+            .locdetails { margin-bottom: 1rem; }
+            .popup-img { display: none; }
+            .preloader-logo { width: 140px; }
+            .spinner-wrapper { width: 60px; height: 60px; }
+            .preloader-text { font-size: 14px; letter-spacing: 1px; }
+        }
+        @media (min-width: 992px) {
+            .mobile-bottom-bar { display: none !important; }
+            body { padding-bottom: 120px; }
+        }
+        @media (max-width: 576px) {
+            .section-head { font-size: 1.3rem; }
+            .count_data { font-size: 28px; }
+            .Configurationbox { padding: 1.5rem 1rem; }
+            .largeh5 { font-size: 18px; }
+            .ametab { padding: 10px 14px; font-size: 13px; }
+            .video-caption { font-size: 13px; padding: 10px 12px; }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-8bd415f8-c9cc-4f14-82c3-ca4bc6c257ce1776680981490"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-8bd415f8-c9cc-4f14-82c3-ca4bc6c257ce1776680981490');
+    </script>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- ===== PRELOADER ===== -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="https://shriram122west.com/img/logo-big-new-1.png" class="preloader-logo" alt="Shriram 122 West" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <div style="display:none; color:#fff; font-size:24px; font-weight:700; margin-bottom:30px; letter-spacing:3px;">SHRIRAM 122 WEST</div>
+            
+            <div class="spinner-wrapper">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            
+            <div class="preloader-text">Loading Experience</div>
+            <div class="preloader-subtext">Please wait while we prepare something amazing for you</div>
+            
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand1" href="#">
+                    <img src="https://shriram122west.com/img/logo-big-new-1.png" alt="Shriram 122 West" onerror="this.src='https://placehold.co/180x50/1e3a8a/FFF?text=SHRIRAM+122+WEST'">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link scroll-top active" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link scroll-top" href="#Overview">Overview</a></li>
+                        <li class="nav-item"><a class="nav-link scroll-top" href="#Location">Location</a></li>
+                        <li class="nav-item"><a class="nav-link scroll-top" href="#configuration">Configuration</a></li>
+                        <li class="nav-item"><a class="nav-link scroll-top" href="#Amenities">Amenities</a></li>
+                        <li class="nav-item"><a class="nav-link scroll-top" href="#video">Videos</a></li>
+                        <li class="nav-item"><a class="nav-link scroll-top" href="#gallery">Plans</a></li>
+                        <li class="nav-item"><a class="nav-link scroll-top" href="#AboutUs">About Us</a></li>
+                    </ul>
+                </div>
+                <a class="navbar-brand1 d-none d-lg-block navbar-logo" href="#">
+                    <img src="https://shriram122west.com/img/logonew.png" alt="Shriram" style="width: 120px;" onerror="this.src='https://placehold.co/120x40/1e3a8a/FFF?text=SHRIRAM'">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Slider -->
+    <section id="home">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="hero-banner">
+                        <img src="https://shriram122west.com/img/slider/2026/02/27/desktop-banner.webp" class="d-none d-lg-block w-100" alt="Shriram 122 West Desktop" onerror="this.src='https://placehold.co/1920x700/1e3a8a/FFF?text=SHRIRAM+122+WEST+-+Desktop+Banner'">
+                        <img src="https://shriram122west.com/img/slider/2026/02/27/Mobile-banner.webp" class="d-block d-lg-none w-100" alt="Shriram 122 West Mobile" onerror="this.src='https://placehold.co/800x600/1e3a8a/FFF?text=SHRIRAM+122+WEST+-+Mobile+Banner'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="Overview" class="py-5">
+        <div class="container-fluid px-lg-5">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 class="section-head">Overview</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-12 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://shriram122west.com/img/overviewlarge.jpg" class="overview-img" alt="Overview" onerror="this.src='https://placehold.co/600x500/cccccc/333?text=Project+Overview'">
+                </div>
+                <div class="col-lg-7 col-12">
+                    <p class="text-lg-start text-center mb-4" data-aos="fade-up">
+                        Shriram Properties brings to you premium residences where opulence knows no bounds and connectivity meets comfort. 
+                        Sprawling over 4.98 acres, this gated community has spacious and lavish homes. With a remarkable and thought-through 
+                        architectural style, every home offers an unobstructed view.
+                    </p>
+                    <div class="row" data-aos="fade-up">
+                        <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
+                            <div class="hi-icon"><img src="https://shriram122west.com/img/01.png" alt="" onerror="this.style.display='none'"></div>
+                            <p>Sprawling 4.98 acres with ample open space</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
+                            <div class="hi-icon"><img src="https://shriram122west.com/img/02.png" alt="" onerror="this.style.display='none'"></div>
+                            <p>Elevation of 2B + G + 19 layout</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
+                            <div class="hi-icon"><img src="https://shriram122west.com/img/03.png" alt="" onerror="this.style.display='none'"></div>
+                            <p>30+ world-class amenities</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
+                            <div class="hi-icon"><img src="https://shriram122west.com/img/04.png" alt="" onerror="this.style.display='none'"></div>
+                            <p>Dedicated 20,000 sq.ft. grand clubhouse with rooftop swimming pool</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
+                            <div class="hi-icon"><img src="https://shriram122west.com/img/05.png" alt="" onerror="this.style.display='none'"></div>
+                            <p>Spacious 2 & 3 BHK homes: 785 - 1296 sq.ft</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
+                            <div class="hi-icon"><img src="https://shriram122west.com/img/06.png" alt="" onerror="this.style.display='none'"></div>
+                            <p>Rooftop Swimming Pool</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section id="Location" class="py-5 bg-light">
+        <div class="container-fluid px-lg-5">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 class="section-head">Location Map</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-12 mb-4" data-aos="fade-right">
+                    <div class="lightgallery">
+                        <a href="https://shriram122west.com/img/map-image.jpg" class="d-block position-relative">
+                            <img src="https://shriram122west.com/img/map-image.jpg" class="img-fluid rounded shadow w-100" alt="Location Map" onerror="this.src='https://placehold.co/600x400/cccccc/333?text=Location+Map'">
+                            <div class="position-absolute top-50 start-50 translate-middle bg-white rounded-circle p-3 shadow" style="cursor:pointer;">
+                                <i class="fa-solid fa-magnifying-glass-plus text-primary fs-4"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="mt-3 small text-muted">
+                        <strong>Site Address:</strong> Shriram 122 West, 903, Shriram City Rd, Sri Pandian Nagar, Mangadu, Chennai, Tamil Nadu 600122.<br>
+                        <strong>Landmark:</strong> Opp. Sri Kamakshi Amman Temple
+                    </p>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="text-center mb-3" data-aos="fade-up">
+                        <h4 class="fw-bold text-primary">Gold Standard Connectivity</h4>
+                    </div>
+                    <p class="text-center text-lg-start mb-4" data-aos="fade-up">
+                        Home is where your heart is. And convenience too! Shriram 122 WEST is located in the center of the connectivity hub. 
+                        From metro to highways to entertainment hubs to major industrial areas; everything is a stone's throw away.
+                    </p>
+                    <div class="row">
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up"><img src="https://shriram122west.com/img/icons/01.png" alt="" onerror="this.style.display='none'"><h6>10 mins from Porur</h6></div>
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up" data-aos-delay="50"><img src="https://shriram122west.com/img/icons/02.png" alt="" onerror="this.style.display='none'"><h6>10 mins from ORR connecting GST and Oragadam</h6></div>
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up" data-aos-delay="100"><img src="https://shriram122west.com/img/icons/03.png" alt="" onerror="this.style.display='none'"><h6>10 mins from NH 48 (Chennai-Bangalore Highway)</h6></div>
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up" data-aos-delay="150"><img src="https://shriram122west.com/img/icons/04.png" alt="" onerror="this.style.display='none'"><h6>25 mins from Chennai International Airport</h6></div>
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up" data-aos-delay="200"><img src="https://shriram122west.com/img/icons/05.png" alt="" onerror="this.style.display='none'"><h6>30 mins from New Mofussil Bus Terminus at Thirumazhisai</h6></div>
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up" data-aos-delay="250"><img src="https://shriram122west.com/img/icons/06.png" alt="" onerror="this.style.display='none'"><h6>Surrounded with schools, colleges, hospitals and recreational centers</h6></div>
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up" data-aos-delay="300"><img src="https://shriram122west.com/img/icons/07.png" alt="" onerror="this.style.display='none'"><h6>Close to DLF IT Park, L&T Infotech and Olympia IT Park</h6></div>
+                        <div class="col-6 col-md-4 locdetails" data-aos="fade-up" data-aos-delay="350"><img src="https://shriram122west.com/img/icons/08.png" alt="" onerror="this.style.display='none'"><h6>In close proximity to industrial belts such as Ambattur, Sriperumbudur and Oragadam</h6></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuration -->
+    <section id="configuration" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h3 class="section-head">Configuration</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="Configurationbox h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 class="configUnit">Unit</h4>
+                            <h5 class="largeh5">2 Bed Residences</h5>
+                        </div>
+                        <button class="hoverBtn mt-3 pricepop"><span>Know More</span></button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="Configurationbox h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 class="configUnit">Unit</h4>
+                            <h5 class="largeh5">3 Bed Residences</h5>
+                        </div>
+                        <button class="hoverBtn mt-3 pricepop"><span>Know More</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section id="Amenities" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 class="section-head">Amenities</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="swiper amenities-slider" data-aos="fade-up">
+                <div class="swiper-wrapper lightgallery">
+                    <div class="swiper-slide">
+                        <a href="https://shriram122west.com/img/amenitiesn/large/001.jpg" class="swiperbox d-block">
+                            <img src="https://shriram122west.com/img/amenitiesn/small/001.jpg" alt="Amenity 1" onerror="this.src='https://placehold.co/400x280/cccccc/333?text=Amenity+1'">
+                            <div class="overlay"><img src="https://shriram122west.com/img/zoom1.png" alt="Zoom" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-plus text-white fs-2\'></i>'"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://shriram122west.com/img/large002.jpg" class="swiperbox d-block">
+                            <img src="https://shriram122west.com/img/small002.jpg" alt="Amenity 2" onerror="this.src='https://placehold.co/400x280/cccccc/333?text=Amenity+2'">
+                            <div class="overlay"><img src="https://shriram122west.com/img/zoom1.png" alt="Zoom" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-plus text-white fs-2\'></i>'"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://shriram122west.com/img/amenitiesn/large/003.jpg" class="swiperbox d-block">
+                            <img src="https://shriram122west.com/img/amenitiesn/small/003.jpg" alt="Amenity 3" onerror="this.src='https://placehold.co/400x280/cccccc/333?text=Amenity+3'">
+                            <div class="overlay"><img src="https://shriram122west.com/img/zoom1.png" alt="Zoom" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-plus text-white fs-2\'></i>'"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://shriram122west.com/img/amenitiesn/large/004.jpg" class="swiperbox d-block">
+                            <img src="https://shriram122west.com/img/amenitiesn/small/004.jpg" alt="Amenity 4" onerror="this.src='https://placehold.co/400x280/cccccc/333?text=Amenity+4'">
+                            <div class="overlay"><img src="https://shriram122west.com/img/zoom1.png" alt="Zoom" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-plus text-white fs-2\'></i>'"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://shriram122west.com/img/amenitiesn/large/005.jpg" class="swiperbox d-block">
+                            <img src="https://shriram122west.com/img/amenitiesn/small/005.jpg" alt="Amenity 5" onerror="this.src='https://placehold.co/400x280/cccccc/333?text=Amenity+5'">
+                            <div class="overlay"><img src="https://shriram122west.com/img/zoom1.png" alt="Zoom" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-plus text-white fs-2\'></i>'"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://shriram122west.com/img/amenitiesn/large/006.jpg" class="swiperbox d-block">
+                            <img src="https://shriram122west.com/img/amenitiesn/small/006.jpg" alt="Amenity 6" onerror="this.src='https://placehold.co/400x280/cccccc/333?text=Amenity+6'">
+                            <div class="overlay"><img src="https://shriram122west.com/img/zoom1.png" alt="Zoom" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-plus text-white fs-2\'></i>'"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-3"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos -->
+    <section id="video" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 class="section-head">Videos</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="gall-wrap">
+                <ul class="gallerynavtabs text-center" role="tablist">
+                    <li><a class="ametab active" data-tab="tab1">Testimonials</a></li>
+                    <li><a class="ametab" data-tab="tab2">Aerial Tour</a></li>
+                    <li><a class="ametab" data-tab="tab3">Walkthrough</a></li>
+                </ul>
+                
+                <!-- Testimonials Tab -->
+                <div class="gelbox active" id="tab1">
+                    <div class="row g-4">
+                        <div class="col-lg-6 col-12 video-card">
+                            <div class="video-caption">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <span>Customer Testimonial 1</span>
+                            </div>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/L-MejSgg5A0?si=jKzWTCASTxxt-xD-" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12 video-card">
+                            <div class="video-caption">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <span>Customer Testimonial 2</span>
+                            </div>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/1Bw6SocT_Wk?si=ZIg6c5pG8-O9UvcV" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Aerial Tour Tab -->
+                <div class="gelbox" id="tab2">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto video-card">
+                            <div class="video-caption">
+                                <i class="fa-solid fa-plane"></i>
+                                <span>Aerial Drone Tour - Shriram 122 West</span>
+                            </div>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/Pv1GT-tBxMY?si=Lq-b0Vk0xaM0AWjj" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Walkthrough Tab -->
+                <div class="gelbox" id="tab3">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto video-card">
+                            <div class="video-caption">
+                                <i class="fa-solid fa-person-walking"></i>
+                                <span>Project Walkthrough - Experience the Lifestyle</span>
+                            </div>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/l_tDbjBjSis?si=04-8t_wGTszg-01t" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floor Plans -->
+    <section id="gallery" class="py-5 bg-dark">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 class="section-head text-white">Plans</h3>
+                <div class="section-divider"></div>
+            </div>
+            <ul class="gallerynavtabs text-center" role="tablist">
+                <li><a class="ametab active text-white" data-tab="f-tab1">Master Plan</a></li>
+                <li><a class="ametab text-white" data-tab="f-tab2">2 BHK Type</a></li>
+                <li><a class="ametab text-white" data-tab="f-tab3">3 BHK Type</a></li>
+            </ul>
+            <div class="gelbox active" id="f-tab1">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <a href="https://shriram122west.com/img/floorplan/small/01.jpg" class="lightgallery d-block">
+                            <img src="https://shriram122west.com/img/floorplan/small/01.jpg" class="img-fluid floor-img w-100" alt="Master Plan" onerror="this.src='https://placehold.co/600x400/333/FFF?text=Master+Plan'">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="gelbox" id="f-tab2">
+                <div class="row g-3">
+                    <div class="col-md-4 col-6"><a href="https://shriram122west.com/img/floorplan/small/02.jpg" class="lightgallery d-block"><img src="https://shriram122west.com/img/floorplan/small/02.jpg" class="img-fluid floor-img w-100" onerror="this.src='https://placehold.co/400x300/333/FFF?text=2BHK+Type+A'"></a></div>
+                    <div class="col-md-4 col-6"><a href="https://shriram122west.com/img/floorplan/large/03.jpg" class="lightgallery d-block"><img src="https://shriram122west.com/img/floorplan/small/03.jpg" class="img-fluid floor-img w-100" onerror="this.src='https://placehold.co/400x300/333/FFF?text=2BHK+Type+B'"></a></div>
+                    <div class="col-md-4 col-6"><a href="https://shriram122west.com/img/floorplan/large/04.jpg" class="lightgallery d-block"><img src="https://shriram122west.com/img/floorplan/small/04.jpg" class="img-fluid floor-img w-100" onerror="this.src='https://placehold.co/400x300/333/FFF?text=2BHK+Type+C'"></a></div>
+                </div>
+            </div>
+            <div class="gelbox" id="f-tab3">
+                <div class="row g-3">
+                    <div class="col-md-3 col-6"><a href="https://shriram122west.com/img/floorplan/large/05.jpg" class="lightgallery d-block"><img src="https://shriram122west.com/img/floorplan/small/05.jpg" class="img-fluid floor-img w-100" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+A'"></a></div>
+                    <div class="col-md-3 col-6"><a href="https://shriram122west.com/img/floorplan/large/06.jpg" class="lightgallery d-block"><img src="https://shriram122west.com/img/floorplan/small/06.jpg" class="img-fluid floor-img w-100" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+B'"></a></div>
+                    <div class="col-md-3 col-6"><a href="https://shriram122west.com/img/floorplan/large/07.jpg" class="lightgallery d-block"><img src="https://shriram122west.com/img/floorplan/small/07.jpg" class="img-fluid floor-img w-100" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+C'"></a></div>
+                    <div class="col-md-3 col-6"><a href="https://shriram122west.com/img/floorplan/large/08.jpg" class="lightgallery d-block"><img src="https://shriram122west.com/img/floorplan/small/08.jpg" class="img-fluid floor-img w-100" onerror="this.src='https://placehold.co/400x300/333/FFF?text=3BHK+Type+D'"></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="AboutUs" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 class="section-head">About Us</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <img src="https://shriram122west.com/img/spl_big_logo.png" class="clientlogo" alt="Shriram Properties" onerror="this.src='https://placehold.co/200x60/cccccc/333?text=SHRIRAM+PROPERTIES'">
+                    <p class="mb-4" data-aos="fade-up">
+                        We are one of the leading residential real estate development companies in South India, primarily focused on the 
+                        mid-market and mid-market premium housing categories. We commenced operations in Bengaluru in the year 2000 and 
+                        have since expanded our presence to other cities in South India, i.e., Chennai, Coimbatore and Visakhapatnam. 
+                        We have demonstrated a track record of having delivered 48 projects accounting to a saleable area of 27.6 million 
+                        square feet as of 31 March 2025. We also have a strong pipeline of 37 projects with 36.3 million square feet of area.
+                    </p>
+                    <div class="app_qr_code" data-aos="fade-up">
+                        <img src="https://shriram122west.com/img/qr-code/app-qr-code.webp" alt="Download App" onerror="this.src='https://placehold.co/120x120/cccccc/333?text=QR+Code'">
+                    </div>
+                    <h5 class="rera" data-aos="fade-up">RERA No: TN/29/BUILDING/0459/2023</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seal of Trust -->
+    <section id="seal_of_trust" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h3 class="section-head text-white">Seal of Trust</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up">
+                    <div class="Highlight-box">
+                        <span class="count_data counter" data-target="50">0</span>
+                        <p>Completed Projects<br>with 30.8 msf</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="Highlight-box">
+                        <span class="count_data counter" data-target="32000">0</span>
+                        <p>Happy Customers</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="Highlight-box">
+                        <span class="count_data counter" data-target="23000">0</span>
+                        <p>Units Handed over</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="Highlight-box">
+                        <span class="count_data counter" data-target="21">0</span>
+                        <p>Ongoing Projects with 17.4 msf</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="Highlight-box">
+                        <span class="count_data counter" data-target="21">0</span>
+                        <p>Upcoming Projects with 18.5 msf</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section id="Disclaimer">
+        <div class="container py-4">
+            <div class="row text-center">
+                <div class="col-12">
+                    <p class="mb-3">
+                        <strong>Disclaimer:</strong> *Terms & Conditions apply. Starting price includes consideration value, car park, 
+                        GST and offer cost and excludes taxes and other charges. This project is RERA registered. The information available 
+                        on or through this advertisement/ brochure is intended to provide general information and shall not be deemed to 
+                        constitute any invitation, solicitation, offer or sale of any of our product offerings. The Company reserves the 
+                        right to add, alter or delete material from the advertisement/ brochure at any time and revise terms under the 
+                        applicable law. Please verify all details and aspects of any proposed booking/acquisition of apartments/units, 
+                        directly with our authorized representatives*. All bank related offer are subject to respective bank's T&Cs
+                    </p>
+                    <h6 class="d-none d-lg-block">© 2026 All Rights Reserved | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms & Conditions</a></h6>
+                    <h6 class="d-lg-none">© 2026 All Rights Reserved</h6>
+                    <h6 class="d-lg-none"><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms & Conditions</a></h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desktop Sticky Footer Form -->
+    <form class="d-none d-lg-block footer-form" id="desktopForm" onsubmit="return handleFormSubmit(event, 'desktopForm')">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-center g-2">
+                <div class="col-auto">
+                    <a href="tel:+917996000436" class="text-white text-decoration-none fw-bold"><i class="fa-solid fa-phone"></i> +91 79960 00436</a>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <input type="text" name="name" class="form-control" placeholder="Name *" required>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <input type="tel" name="mobile" class="form-control" placeholder="Mobile *" required maxlength="10" pattern="[6-9]{1}[0-9]{9}" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                </div>
+                <div class="col-md-2 col-lg-auto">
+                    <button type="submit" class="btn-submit"><i class="fa-solid fa-envelope"></i> SUBMIT</button>
+                </div>
+            </div>
+            <div class="text-center mt-1">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" checked required> I wish to receive updates and offers from Shriram Properties via Whatsapp / Email / SMS / Call
+                </label>
+            </div>
+        </div>
+    </form>
+
+    <!-- Mobile Bottom Bar -->
+    <div class="mobile-bottom-bar d-lg-none">
+        <a href="tel:+917996000436" class="m-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
+        <a href="javascript:void(0)" class="m-btn pricepop"><i class="fa-solid fa-envelope"></i> Enquire Now</a>
+    </div>
+
+    <!-- Enquiry Popup Modal -->
+    <div class="modal fade" id="priceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-primary">Enquire Now</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <img src="https://shriram122west.com/img/122-west-new.webp" class="popup-img" alt="Shriram 122 West" onerror="this.src='https://placehold.co/400x500/1e3a8a/FFF?text=Shriram+122+West'">
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="text-center mb-3">
+                                <img src="https://shriram122west.com/img/logo-big-new-white.png" alt="Shriram" style="width: 40%;" onerror="this.src='https://placehold.co/150x50/1e3a8a/FFF?text=SHRIRAM'">
+                            </div>
+                            <form id="popupForm" onsubmit="return handleFormSubmit(event, 'popupForm')">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">NAME *</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">EMAIL</label>
+                                    <input type="email" name="email" class="form-control" placeholder="Enter your email">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small">CONTACT NO *</label>
+                                    <input type="tel" name="mobile" class="form-control" placeholder="Enter mobile number" required maxlength="10" pattern="[6-9]{1}[0-9]{9}" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                                </div>
+                                <div class="modal-checkbox">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" checked required>
+                                        <label class="form-check-label">I agree and authorize team to contact me. This will override the registry with DNC / NDNC</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" checked required>
+                                        <label class="form-check-label">I consent to the processing of my personal data according to <a href="privacy-policy.html">Privacy Policy</a> & <a href="terms-conditions.html">T&C</a></label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="submit-btn mt-3">ENQUIRE NOW</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alertContainer"></div>
+
+    <!-- Scroll Top -->
+    <div class="scrollup" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js"></script>
+
+    <script>
+        // ===== PRELOADER LOGIC =====
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const preloader = document.getElementById('preloader');
+                preloader.classList.add('hidden');
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 600);
+            }, 1500);
+        });
+
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // Initialize Swiper for Amenities
+        const amenitySwiper = new Swiper('.amenities-slider', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                768: { slidesPerView: 3, spaceBetween: 30 },
+                1024: { slidesPerView: 4, spaceBetween: 30 }
+            }
+        });
+
+        // LightGallery
+        $('.lightgallery').lightGallery({ selector: 'a', thumbnail: false, download: false });
+
+        // Tab Switching (Videos & Floor Plans)
+        document.querySelectorAll('.gallerynavtabs').forEach(nav => {
+            nav.addEventListener('click', function(e) {
+                if(e.target.classList.contains('ametab')) {
+                    e.preventDefault();
+                    const parent = e.target.closest('.gall-wrap') || e.target.closest('.container');
+                    const tabId = e.target.getAttribute('data-tab');
+                    
+                    this.querySelectorAll('.ametab').forEach(t => t.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    const container = this.nextElementSibling;
+                    if(container) {
+                        container.querySelectorAll('.gelbox').forEach(g => g.classList.remove('active'));
+                        const target = document.getElementById(tabId);
+                        if(target) target.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Navbar Scroll Spy & Smooth Scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= sectionTop - 200) current = section.getAttribute('id');
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+            
+            const scrollTop = document.getElementById('scrollTop');
+            if(window.pageYOffset > 300) scrollTop.classList.add('visible');
+            else scrollTop.classList.remove('visible');
+        });
+
+        document.querySelectorAll('.scroll-top').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+            });
+        });
+
+        document.getElementById('scrollTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Popup Modal Triggers
+        document.querySelectorAll('.pricepop').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = new bootstrap.Modal(document.getElementById('priceModal'));
+                modal.show();
+            });
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const animateCounter = (el) => {
+            const target = parseInt(el.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if(current >= target) {
+                    el.textContent = target >= 1000 ? (target/1000) + 'K+' : target + '+';
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.floor(current);
+                }
+            }, 16);
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // TeleCRM API & Google Ads Conversion
+        const TELECRM_URL = 'https://next-api.telecrm.in/enterprise/64d603a58067830008ea953b/autoupdatelead';
+
+        function getFormattedDate() {
+            const now = new Date();
+            const dd = String(now.getDate()).padStart(2, '0');
+            const mm = String(now.getMonth() + 1).padStart(2, '0');
+            const yyyy = now.getFullYear();
+            const hh = String(now.getHours()).padStart(2, '0');
+            const min = String(now.getMinutes()).padStart(2, '0');
+            const ss = String(now.getSeconds()).padStart(2, '0');
+            return `${dd}/${mm}/${yyyy} ${hh}:${min}:${ss}`;
+        }
+
+        function formatPhone(phone) {
+            phone = phone.replace(/\D/g, '');
+            if(phone.startsWith('0')) phone = phone.substring(1);
+            if(!phone.startsWith('91')) phone = '91' + phone;
+            return '+' + phone;
+        }
+
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show form-alert`;
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            container.appendChild(alertDiv);
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+
+        async function handleFormSubmit(e, formId) {
+            e.preventDefault();
+            const form = document.getElementById(formId);
+            const formData = new FormData(form);
+            
+            const name = formData.get('name')?.trim();
+            const email = formData.get('email')?.trim() || '';
+            const mobile = formData.get('mobile')?.trim();
+            
+            if(!name || !mobile) {
+                showAlert('Please fill in all required fields.', 'danger');
+                return false;
+            }
+            
+            if(mobile.length !== 10) {
+                showAlert('Please enter a valid 10-digit mobile number.', 'danger');
+                return false;
+            }
+            
+            const formattedPhone = formatPhone(mobile);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            const payload = {
+                fields: {
+                    name: name,
+                    phone: formattedPhone,
+                    email: email || 'no-email@shriram122west.com',
+                    rating: 3,
+                    status: "Fresh",
+                    assignee: email || "admin@shriram122west.com",
+                    property1: formattedPhone,
+                    property2: formattedPhone
+                },
+                actions: [
+                    {
+                        type: 1001,
+                        fields: {
+                            property1: name,
+                            property2: name
+                        },
+                        created_on: getFormattedDate()
+                    }
+                ]
+            };
+            
+            try {
+                const response = await fetch(TELECRM_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                if(response.ok) {
+                    if(typeof gtag !== 'undefined') {
+                        gtag('event', 'conversion', {
+                            send_to: 'AW-8bd415f8-c9cc-4f14-82c3-ca4bc6c257ce1776680981490/c7768c37-43a9-4bb9-b35a-0e9931ceb03a',
+                            value: 1.0,
+                            currency: 'INR'
+                        });
+                    }
+                    
+                    showAlert('Thank you! Your enquiry has been submitted successfully. Our team will contact you shortly.', 'success');
+                    form.reset();
+                    
+                    if(formId === 'popupForm') {
+                        const modalEl = document.getElementById('priceModal');
+                        const modal = bootstrap.Modal.getInstance(modalEl);
+                        if(modal) modal.hide();
+                    }
+                } else {
+                    const errorData = await response.json().catch(() => null);
+                    console.error('TeleCRM Error:', errorData);
+                    showAlert('Submission failed. Please try again or contact us directly.', 'danger');
+                }
+            } catch(error) {
+                console.error('Network Error:', error);
+                showAlert('Network error. Please check your connection and try again.', 'danger');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
