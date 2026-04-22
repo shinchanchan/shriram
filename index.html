@@ -45,7 +45,6 @@
         .nav-link:hover, .nav-link.active { color: var(--yellow) !important; }
         .navbar-toggler { border: none; font-size: 1.5rem; color: #fff; }
         
-        /* Phone link in header */
         .nav-phone {
             color: #fff;
             font-size: 14px;
@@ -229,8 +228,7 @@
         .blur-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(136,14,79,0.9), rgba(233,30,99,0.8));
-            display: flex;
+	    display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
@@ -448,7 +446,6 @@
             transform: scale(1.15);
             color: white;
         }
-        /* WhatsApp - topmost */
         .whatsapp-float {
             bottom: 150px;
             background: #25D366;
@@ -459,9 +456,8 @@
             background: #128C7E;
             box-shadow: 0 6px 25px rgba(37,211,102,0.7);
         }
-        /* Phone - middle */
         .phone-float {
-            bottom: 222px;
+            bottom: 210px;
             background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
             color: white;
             font-size: 24px;
@@ -470,7 +466,6 @@
             background: linear-gradient(135deg, var(--secondary-pink), var(--dark-pink));
             box-shadow: 0 6px 25px rgba(233,30,99,0.6);
         }
-        /* Scroll top - bottom */
         .scrollup {
             position: fixed;
             bottom: 20px;
@@ -493,14 +488,33 @@
         .scrollup.visible { opacity: 1; }
         .scrollup:hover { background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%); color: var(--dark); }
 
-        /* Popup Modal */
+        /* ===== MODAL FIXES - MOBILE FRIENDLY ===== */
         .modal-content { border-radius: 12px; border: none; overflow: hidden; }
-        .modal-header { border-bottom: none; padding: 1rem 1rem 0; }
+        .modal-header {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1rem 1.5rem;
+            align-items: center;
+        }
+        .modal-header .modal-title { font-size: 18px; }
         .modal-body { padding: 1.5rem; }
-        .popup-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; min-height: 300px; }
+        .modal-body .row { margin: 0 -10px; }
+        .modal-body .row > [class*="col-"] { padding: 0 10px; }
+        .popup-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            min-height: 300px;
+            display: block;
+        }
         .form-control { padding: 10px 12px; font-size: 14px; }
         .form-control:focus { border-color: var(--primary-pink); box-shadow: 0 0 0 0.2rem rgba(233,30,99,0.25); }
-        .submit-btn { background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%); color: #fff; border: none; padding: 12px; font-weight: 700; text-transform: uppercase; width: 100%; border-radius: 6px; transition: 0.3s; }
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%);
+            color: #fff; border: none; padding: 12px;
+            font-weight: 700; text-transform: uppercase;
+            width: 100%; border-radius: 6px; transition: 0.3s;
+        }
         .submit-btn:hover { background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%); color: var(--dark); }
         .modal-checkbox { font-size: 11px; color: #666; margin: 10px 0; }
         .modal-checkbox a { color: var(--primary-pink); cursor: pointer; text-decoration: underline; font-weight: 600; }
@@ -513,9 +527,31 @@
             padding: 20px;
             text-align: center;
             border-bottom: none;
+            position: relative;
         }
         .welcome-modal-header h5 { font-weight: 700; margin: 0; font-size: 20px; }
         .welcome-modal-header p { margin: 6px 0 0; opacity: 0.9; font-size: 14px; }
+        .welcome-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.25);
+            border: none;
+            color: #fff;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            z-index: 10;
+            transition: 0.2s;
+        }
+        .welcome-close:hover { background: rgba(255,255,255,0.45); }
 
         /* RERA Section */
         #ReraInfo { background: #fff; border-top: 3px solid var(--yellow); }
@@ -547,7 +583,7 @@
         .policy-modal li { margin-bottom: 6px; }
         .policy-modal p { margin-bottom: 12px; }
 
-        /* Responsive Fixes */
+        /* ===== MOBILE SPECIFIC FIXES ===== */
         @media (max-width: 991px) {
             .navbar-brand1 img { height: 40px; }
             .amenitiesicon { border-right: none; }
@@ -573,11 +609,16 @@
                 min-height: 190px;
             }
             .sticker-box i { font-size: 18px; }
-            /* Mobile FAB positions - above 56px bottom bar */
             .whatsapp-float { bottom: 195px; right: 15px; width: 50px; height: 50px; font-size: 24px; }
             .phone-float { bottom: 135px; right: 15px; width: 50px; height: 50px; font-size: 22px; }
             .scrollup { bottom: 75px; right: 15px; width: 42px; height: 42px; }
             .map-container iframe, .map-container .map-placeholder { height: 350px; }
+            /* Modal mobile fixes */
+            .modal-body { padding: 18px 16px; }
+            .modal-header { padding: 14px 16px; }
+            .welcome-modal-header { padding: 16px; }
+            .welcome-modal-header h5 { font-size: 17px; }
+            .welcome-close { top: 10px; right: 10px; width: 30px; height: 30px; font-size: 18px; }
         }
         @media (min-width: 992px) {
             .mobile-bottom-bar { display: none !important; }
@@ -610,6 +651,12 @@
             .sticker-box i { font-size: 16px; }
             .wall-sticker-left .sticker-box { border-radius: 0 14px 14px 0; }
             .wall-sticker-right .sticker-box { border-radius: 14px 0 0 14px; }
+            /* Extra small modal fixes */
+            .modal-body { padding: 15px 14px; }
+            .modal-body .row > [class*="col-"] { padding: 0 8px; }
+            .form-control { padding: 9px 10px; font-size: 16px; } /* 16px prevents iOS zoom */
+            .modal-checkbox { font-size: 10px; }
+            .submit-btn { padding: 11px; font-size: 14px; }
         }
     </style>
 
@@ -743,7 +790,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
                             <div class="hi-icon"><img src="https://shriram122west.com/img/05.png" alt="" onerror="this.style.display='none'"></div>
-                            <p>Spacious 2 & 3 BHK homes: 818 - 1296 sq.ft</p>
+                            <p>Spacious 2 & 3 BHK homes: 785 - 1296 sq.ft</p>
                         </div>
                         <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
                             <div class="hi-icon"><img src="https://shriram122west.com/img/06.png" alt="" onerror="this.style.display='none'"></div>
@@ -837,7 +884,7 @@
                 <div class="pricing-card">
                     <div class="pricing-header">3 BHK <small style="font-size:14px;opacity:0.9;">+ 3T</small></div>
                     <div class="pricing-body">
-                        <div class="sqft"><i class="fa-solid fa-ruler-combined me-2" style="color: var(--primary-pink);"></i>1296 Sq.ft</div>
+                        <div class="sqft"><i class="fa-solid fa-ruler-combined me-2" style="color: var(--primary-pink);"></i>1285 Sq.ft</div>
                         <div class="price">₹ 93.32 Lacs<span>+ Registration Charges</span></div>
                         <div class="possession">
                             <i class="fa-regular fa-calendar-check"></i> Possession: Oct 2027
@@ -1266,13 +1313,6 @@
                             Registration No: TN/29/Agent/0079/2017
                         </p>
                     </div>
-                    <div class="text-center mt-3">
-                        <p class="small text-muted" style="font-size: 11px; line-height: 1.6;">
-                            <strong>Disclaimer:</strong> This website is only meant for informational purpose(s) only. 
-                            It should not be otherwise considered/ claimed as an official builder/project site. 
-                            This website solely belongs to an authorised channel Partner.
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1284,13 +1324,10 @@
             <div class="row text-center">
                 <div class="col-12">
                     <p class="mb-3">
-                        <strong>Disclaimer:</strong> *Terms & Conditions apply. Starting price includes consideration value, car park, 
-                        GST and offer cost and excludes taxes and other charges. This project is RERA registered. The information available 
-                        on or through this advertisement/ brochure is intended to provide general information and shall not be deemed to 
-                        constitute any invitation, solicitation, offer or sale of any of our product offerings. The Company reserves the 
-                        right to add, alter or delete material from the advertisement/ brochure at any time and revise terms under the 
-                        applicable law. Please verify all details and aspects of any proposed booking/acquisition of apartments/units, 
-                        directly with our authorized representatives*. All bank related offer are subject to respective bank's T&Cs
+                        <strong>Disclaimer:</strong>  This website is only meant for informational purpose(s) only.
+                            It should not be otherwise considered/ claimed as an official builder/project site.
+                            This website solely belongs to an authorised channel Partner.
+
                     </p>
                     <h6 class="d-none d-lg-block">© 2026 All Rights Reserved | <a onclick="openPrivacyPolicy()">Privacy Policy</a> | <a onclick="openTermsConditions()">Terms & Conditions</a></h6>
                     <h6 class="d-lg-none">© 2026 All Rights Reserved</h6>
@@ -1321,7 +1358,7 @@
                 </div>
             </div>
             <div class="text-center mt-1">
-                <label class="form-check-label" style="color: white;" >
+                <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" checked required> I wish to receive updates and offers from Shriram Properties via Whatsapp / Email / SMS / Call
                 </label>
             </div>
@@ -1334,7 +1371,7 @@
         <a href="javascript:void(0)" class="m-btn pricepop"><i class="fa-solid fa-envelope"></i> Enquire Now</a>
     </div>
 
-    <!-- Enquiry Popup Modal -->
+    <!-- ===== ENQUIRY MODAL (Image + Form) ===== -->
     <div class="modal fade" id="priceModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -1384,7 +1421,7 @@
         </div>
     </div>
 
-    <!-- ===== BROCHURE MODAL ===== -->
+    <!-- ===== BROCHURE MODAL (Image + Form) ===== -->
     <div class="modal fade" id="brochureModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -1435,7 +1472,7 @@
         </div>
     </div>
 
-    <!-- ===== SCHEDULE VISIT MODAL ===== -->
+    <!-- ===== SCHEDULE VISIT MODAL (Image + Form) ===== -->
     <div class="modal fade" id="scheduleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -1452,7 +1489,7 @@
                             <div class="text-center mb-3">
                                 <img src="https://shriram122west.com/img/logo-big-new-white.png" alt="Shriram" style="width: 40%;" onerror="this.src='https://placehold.co/150x50/e91e63/FFF?text=SHRIRAM'">
                             </div>
-                            <p class="text-center small text-muted mb-3">Book a free site visit to experience the project firsthand.</p>
+			    <h1 class="text-center small text-muted mb-3">Book a free site visit to experience the project firsthand.</h1>
                             <form id="scheduleForm" onsubmit="return handleFormSubmit(event, 'scheduleForm')">
                                 <div class="mb-3">
                                     <label class="form-label fw-bold small">NAME *</label>
@@ -1490,7 +1527,7 @@
     <div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="welcome-modal-header position-relative">
+                <div class="welcome-modal-header">
                     <button type="button" class="welcome-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
                     <h5><i class="fa-solid fa-gift me-2"></i>Exclusive Launch Offer</h5>
                     <p>Register your interest for Shriram 122 West today!</p>
@@ -1533,7 +1570,7 @@
                                 <button type="submit" class="submit-btn mt-3">GET INSTANT CALLBACK</button>
                                 <div class="form-message"></div>
                             </form>
-                            <span class="btn-close-text d-block text-center mt-3" data-bs-dismiss="modal" style="color: #888; font-size: 13px; cursor: pointer;">No thanks, I'll browse first</span>
+                            <span class="d-block text-center mt-3" data-bs-dismiss="modal" style="color: #888; font-size: 13px; cursor: pointer;">No thanks, I'll browse first</span>
                         </div>
                     </div>
                 </div>
