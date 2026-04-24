@@ -228,11 +228,12 @@
         .blur-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-	    display: flex;
+            background: linear-gradient(135deg, rgba(136,14,79,0.9), rgba(233,30,99,0.8));
+            display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            color: black;
+            color: #fff;
             cursor: pointer;
             z-index: 20;
             transition: all 0.4s ease;
@@ -315,7 +316,7 @@
         .footer-form input { border-radius: 4px; border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.95); padding: 8px 12px; font-size: 14px; }
         .footer-form .btn-submit { background: var(--yellow); color: var(--dark); border: none; padding: 8px 24px; font-weight: 700; border-radius: 4px; width: 100%; }
         .footer-form .btn-submit:hover { background: var(--yellow-dark); color: #fff; }
-        .form-check-label { font-size: 11px; color: block; }
+        .form-check-label { font-size: 11px; color: rgba(255,255,255,0.95); }
         .form-check-input { margin-top: 0.2em; }
 
         /* Mobile Bottom Bar */
@@ -457,7 +458,7 @@
             box-shadow: 0 6px 25px rgba(37,211,102,0.7);
         }
         .phone-float {
-            bottom: 210px;
+            bottom: 85px;
             background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
             color: white;
             font-size: 24px;
@@ -790,7 +791,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
                             <div class="hi-icon"><img src="https://shriram122west.com/img/05.png" alt="" onerror="this.style.display='none'"></div>
-                            <p>Spacious 2 & 3 BHK homes: 818 - 1296 sq.ft</p>
+                            <p>Spacious 2 & 3 BHK homes: 785 - 1296 sq.ft</p>
                         </div>
                         <div class="col-lg-4 col-md-6 col-6 amenitiesicon">
                             <div class="hi-icon"><img src="https://shriram122west.com/img/06.png" alt="" onerror="this.style.display='none'"></div>
@@ -884,7 +885,7 @@
                 <div class="pricing-card">
                     <div class="pricing-header">3 BHK <small style="font-size:14px;opacity:0.9;">+ 3T</small></div>
                     <div class="pricing-body">
-                        <div class="sqft"><i class="fa-solid fa-ruler-combined me-2" style="color: var(--primary-pink);"></i>1296 Sq.ft</div>
+                        <div class="sqft"><i class="fa-solid fa-ruler-combined me-2" style="color: var(--primary-pink);"></i>1285 Sq.ft</div>
                         <div class="price">₹ 93.32 Lacs<span>+ Registration Charges</span></div>
                         <div class="possession">
                             <i class="fa-regular fa-calendar-check"></i> Possession: Oct 2027
@@ -1313,6 +1314,13 @@
                             Registration No: TN/29/Agent/0079/2017
                         </p>
                     </div>
+                    <div class="text-center mt-3">
+                        <p class="small text-muted" style="font-size: 11px; line-height: 1.6;">
+                            <strong>Disclaimer:</strong> This website is only meant for informational purpose(s) only. 
+                            It should not be otherwise considered/ claimed as an official builder/project site. 
+                            This website solely belongs to an authorised channel Partner.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1324,10 +1332,13 @@
             <div class="row text-center">
                 <div class="col-12">
                     <p class="mb-3">
-                        <strong>Disclaimer:</strong>  This website is only meant for informational purpose(s) only.
-                            It should not be otherwise considered/ claimed as an official builder/project site.
-                            This website solely belongs to an authorised channel Partner.
-
+                        <strong>Disclaimer:</strong> *Terms & Conditions apply. Starting price includes consideration value, car park, 
+                        GST and offer cost and excludes taxes and other charges. This project is RERA registered. The information available 
+                        on or through this advertisement/ brochure is intended to provide general information and shall not be deemed to 
+                        constitute any invitation, solicitation, offer or sale of any of our product offerings. The Company reserves the 
+                        right to add, alter or delete material from the advertisement/ brochure at any time and revise terms under the 
+                        applicable law. Please verify all details and aspects of any proposed booking/acquisition of apartments/units, 
+                        directly with our authorized representatives*. All bank related offer are subject to respective bank's T&Cs
                     </p>
                     <h6 class="d-none d-lg-block">© 2026 All Rights Reserved | <a onclick="openPrivacyPolicy()">Privacy Policy</a> | <a onclick="openTermsConditions()">Terms & Conditions</a></h6>
                     <h6 class="d-lg-none">© 2026 All Rights Reserved</h6>
@@ -1489,7 +1500,7 @@
                             <div class="text-center mb-3">
                                 <img src="https://shriram122west.com/img/logo-big-new-white.png" alt="Shriram" style="width: 40%;" onerror="this.src='https://placehold.co/150x50/e91e63/FFF?text=SHRIRAM'">
                             </div>
-			    <h1 class="text-center small text-muted mb-3">Book a free site visit to experience the project firsthand.</h1>
+                            <p class="text-center small text-muted mb-3">Book a free site visit to experience the project firsthand.</p>
                             <form id="scheduleForm" onsubmit="return handleFormSubmit(event, 'scheduleForm')">
                                 <div class="mb-3">
                                     <label class="form-label fw-bold small">NAME *</label>
@@ -2073,6 +2084,51 @@
             }
             return false;
         }
+
+        // ===== SCROLL TRIGGERED ENQUIRY FORMS (Max 3 times) =====
+        (function() {
+            const MAX_SCROLL_SHOWS = 3;
+            const COUNT_KEY = 'scroll_enquiry_count';
+            
+            function getCount() {
+                return parseInt(sessionStorage.getItem(COUNT_KEY) || '0');
+            }
+            
+            function incrementAndShow() {
+                if (getCount() >= MAX_SCROLL_SHOWS) return false;
+                if (localStorage.getItem(STORAGE_KEY) === 'true') return false;
+                
+                // Don't show if any modal is currently open
+                const openModal = document.querySelector('.modal.show');
+                if (openModal) return false;
+                
+                sessionStorage.setItem(COUNT_KEY, String(getCount() + 1));
+                const modal = new bootstrap.Modal(document.getElementById('priceModal'));
+                modal.show();
+                return true;
+            }
+            
+            function observeSection(selector, flagKey) {
+                const section = document.querySelector(selector);
+                if (!section) return;
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !sessionStorage.getItem(flagKey)) {
+                            sessionStorage.setItem(flagKey, 'true');
+                            incrementAndShow();
+                        }
+                    });
+                }, { threshold: 0.25 });
+                
+                observer.observe(section);
+            }
+            
+            // 3 scroll triggers: Configuration, Pricing, MapView
+            observeSection('#configuration', 'scroll_config_shown');
+            observeSection('#Pricing', 'scroll_pricing_shown');
+            observeSection('#MapView', 'scroll_map_shown');
+        })();
     </script>
 </body>
 </html>
