@@ -1978,13 +1978,8 @@
                     name: name,
                     phone: formattedPhone,
                     email: email || 'no-email@shriram122west.com',
-                    rating: 3,
-                    status: "Fresh",
-                    assignee: email || "admin@shriram122west.com",
-                    property1: formattedPhone,
-                    property2: formattedPhone
                 },
-                actions: [{ type: 1001, fields: { property1: name, property2: name }, created_on: getFormattedDate() }]
+                actions: [{ type: 1001, created_on: getFormattedDate() }]
             };
             
             try {
