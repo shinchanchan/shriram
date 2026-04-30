@@ -2007,7 +2007,7 @@
                     phone: formattedPhone,
                     email: email || 'no-email@shriram122west.com',
                     project_name: 'Shriram 122 West',
-                    Lead_Medium: 'google ADS',
+                    lead_medium: 'google ADS',
                 },
                 actions: [{ type: 1001, created_on: getFormattedDate() }]
             };
@@ -2015,10 +2015,6 @@
             try {
                 const response = await fetch(TELECRM_URL, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                    },
                     body: JSON.stringify(payload)
                 });
                 
