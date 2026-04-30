@@ -18,21 +18,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css">
 
      <!-- ✅ Google tag (REQUIRED on every page) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18120685751"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'AW-18120685751');
-  </script>
+ 
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18120685751"></script> 
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18120685751'); </script>
+
+
+    <!-- Event snippet for Submit lead form conversion page --> 
+    <script> gtag('event', 'conversion', { 'send_to': 'AW-18120685751/lYmzCLLbuqMcELfxzsBD', 'value': 1.0, 'currency': 'INR' }); </script>
 
      <!-- ✅ AMP Core Library -->
   <script async src="https://cdn.ampproject.org/v0.js"></script>
 
   <!-- ✅ AMP Analytics (MUST for tracking) -->
-  <script async custom-element="amp-analytics"
-    src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
 
 
     <style>
@@ -1728,45 +1729,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js"></script>
 
 
-      <!-- ✅ Google Ads Tracking (AMP तरीका) -->
-  <amp-analytics type="gtag" data-credentials="include">
-    <script type="application/json">
-    {
-      "vars": {
-        "gtag_id": "AW-18120685751",
-        "config": {
-          "AW-18120685751": { "groups": "default" }
-        }
-      },
-      "triggers": {
-
-        /* ✅ Conversion when page is visible (THANK YOU PAGE तरीका) */
-        "conversion_page": {
-          "on": "visible",
-          "vars": {
-            "event_name": "conversion",
-            "value": 1.0,
-            "currency": "INR",
-            "send_to": ["AW-18120685751/lYmzCLLbuqMcELfxzsBD"]
-          }
-        },
-
-        /* ✅ Conversion on button click */
-        "whatsapp_click": {
-          "on": "click",
-          "selector": ".btn",
-          "vars": {
-            "event_name": "conversion",
-            "value": 1.0,
-            "currency": "INR",
-            "send_to": ["AW-18120685751/lYmzCLLbuqMcELfxzsBD"]
-          }
-        }
-
-      }
-    }
-    </script>
-  </amp-analytics>
+   <!-- Google tag (gtag.js) --> 
+    <amp-analytics type="gtag" data-credentials="include"> 
+        <script type="application/json"> { "vars": { "gtag_id": "AW-18120685751", "config": { "AW-18120685751": { "groups": "default" } } }, "triggers": { } } 
+   </script> 
+   </amp-analytics>
 
     
     <script>
