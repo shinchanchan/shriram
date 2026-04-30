@@ -27,6 +27,14 @@
     gtag('config', 'AW-18120685751');
   </script>
 
+     <!-- ✅ AMP Core Library -->
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+  <!-- ✅ AMP Analytics (MUST for tracking) -->
+  <script async custom-element="amp-analytics"
+    src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+
     <style>
         :root {
             --primary-pink: #e91e63;
@@ -1719,6 +1727,48 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js"></script>
 
+
+      <!-- ✅ Google Ads Tracking (AMP तरीका) -->
+  <amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+    {
+      "vars": {
+        "gtag_id": "AW-18120685751",
+        "config": {
+          "AW-18120685751": { "groups": "default" }
+        }
+      },
+      "triggers": {
+
+        /* ✅ Conversion when page is visible (THANK YOU PAGE तरीका) */
+        "conversion_page": {
+          "on": "visible",
+          "vars": {
+            "event_name": "conversion",
+            "value": 1.0,
+            "currency": "INR",
+            "send_to": ["AW-18120685751/lYmzCLLbuqMcELfxzsBD"]
+          }
+        },
+
+        /* ✅ Conversion on button click */
+        "whatsapp_click": {
+          "on": "click",
+          "selector": ".btn",
+          "vars": {
+            "event_name": "conversion",
+            "value": 1.0,
+            "currency": "INR",
+            "send_to": ["AW-18120685751/lYmzCLLbuqMcELfxzsBD"]
+          }
+        }
+
+      }
+    }
+    </script>
+  </amp-analytics>
+
+    
     <script>
         // Initialize AOS
         AOS.init({ duration: 800, once: true, offset: 100 });
