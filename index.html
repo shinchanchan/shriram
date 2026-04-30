@@ -1943,7 +1943,8 @@
         });
 
         // ===== TELECRM API CONFIG - BEARER TOKEN =====
-        const TELECRM_URL = 'https://next-api.telecrm.in/enterprise/64d603a58067830008ea953b/autoupdatelead';
+      //  const TELECRM_URL = 'https://next-api.telecrm.in/enterprise/64d603a58067830008ea953b/autoupdatelead';
+        const TELECRM_URL = 'https://script.google.com/macros/s/AKfycbzbaDL9aX0xw_yArWejAzdlrBG8o7rKzLTGY954YqO7dnUTX5Hx04QNEdwUSWCGru1TrA/exec';
         const TELECRM_TOKEN = '8bd415f8-c9cc-4f14-82c3-ca4bc6c257ce1776680981490:c7768c37-43a9-4bb9-b35a-0e9931ceb03a';
 
         function getFormattedDate() {
@@ -2005,8 +2006,8 @@
                     name: name,
                     phone: formattedPhone,
                     email: email || 'no-email@shriram122west.com',
-                    'project name': 'Shriram 122 West',
-                    'Lead Medium': 'google ADS',
+                    project_name: 'Shriram 122 West',
+                    Lead_Medium: 'google ADS',
                 },
                 actions: [{ type: 1001, created_on: getFormattedDate() }]
             };
@@ -2017,7 +2018,6 @@
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
-                        'Authorization': 'Bearer ' + TELECRM_TOKEN
                     },
                     body: JSON.stringify(payload)
                 });
