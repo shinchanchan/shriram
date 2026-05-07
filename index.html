@@ -1955,7 +1955,7 @@
         // ===== TELECRM API CONFIG - BEARER TOKEN =====
       //  const TELECRM_URL = 'https://next-api.telecrm.in/enterprise/64d603a58067830008ea953b/autoupdatelead';
      //   const TELECRM_URL = 'https://script.google.com/macros/s/AKfycbzbaDL9aX0xw_yArWejAzdlrBG8o7rKzLTGY954YqO7dnUTX5Hx04QNEdwUSWCGru1TrA/exec';
-              const TELECRM_URL = 'https://script.google.com/macros/s/AKfycbzHxEMgtX-LgYd86yVrQFry3mZP4yAA4zOIOJAd3qQ8v5lR9Ff_yNG-KCB6xCRfEs_8/exec';
+              const TELECRM_URL = 'https://script.google.com/macros/s/AKfycbzpjXO1EdwS4SSoknkvS4kaWlUlqdcVJfkZiOp--NVP5J0_8s16lc5gMIdnrRW0eA/exec';
 
         const TELECRM_TOKEN = '8bd415f8-c9cc-4f14-82c3-ca4bc6c257ce1776680981490:c7768c37-43a9-4bb9-b35a-0e9931ceb03a';
 
@@ -2027,8 +2027,12 @@
             try {
                 const response = await fetch(TELECRM_URL, {
                     method: 'POST',
+                    headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+        },
                     body: JSON.stringify(payload)
                 });
+
                 
                 // Smart response handling
                 let result;
